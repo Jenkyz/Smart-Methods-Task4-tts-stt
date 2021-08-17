@@ -122,8 +122,11 @@ def on_message(self, msg):
         else:
             LAST = data
         # This prints out the current fragment that we are working on
-        print(data['results'][0]['alternatives'][0]['transcript'])
+        res = data['results'][0]['alternatives'][0]['transcript']
+        print(res)
 
+        with open('output.txt', 'w') as out:
+            out.writelines(res)
 
 def on_error(self, error):
     """Print any errors."""
